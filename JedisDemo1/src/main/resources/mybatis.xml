@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--引入DTD -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="logImpl" value="LOG4J" />
+		<!-- <setting name="lazyLoadingEnabled" value="true"/>
+		<setting name="aggressiveLazyLoading" value="false"/> -->
+	</settings>
+	<!-- 配置分页插件 -->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <!-- 设置数据库类型 Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库 -->        
+            <property name="dialect" value="mysql"/>
+            <!-- 将RowBounds第一个参数offset当成pageNum页码使用 -->
+            <property name="offsetAsPageNum" value="true"/>
+            <!-- 设置为true是，使用RowBounds分页会进行count查询 -->
+            <property name="rowBoundsWithCount" value="true"/>
+           <!--  设置为true时，如果pageSize=0或RowBounds.limit = 0 时查询所有数据  -->
+            <property name="pageSizeZero" value="true"/>
+            <!-- 默认为false
+           		 如果页数1会查询第一页，如果页数大于最大页数，查询最后一页 -->
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+</configuration>
