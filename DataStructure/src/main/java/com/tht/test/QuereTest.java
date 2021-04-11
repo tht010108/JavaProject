@@ -18,6 +18,7 @@ public class QuereTest {
         System.out.println("出队列："+arrayQueue.getQuere());
         arrayQueue.addQuere(4);
         arrayQueue.addQuere(5);
+        arrayQueue.addQuere(6);
         arrayQueue.printQueue();
     }
 }
