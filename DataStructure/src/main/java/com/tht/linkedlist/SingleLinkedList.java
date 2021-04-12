@@ -167,6 +167,12 @@ public class SingleLinkedList {
         head.setNext(reverseHead.getNext());
     }
 
+    /**
+     * 合并两个有序链表
+     * @param list1 有序链表
+     * @param list2 有序链表
+     * @return 合并后的有序链表
+     */
     public static SingleLinkedList merge(SingleLinkedList list1,SingleLinkedList list2){
         SingleLinkedList newLinkedList = new SingleLinkedList();    //用于存放新链表
         SingleLinkedListNode temp1 = list1 == null ? null : list1.getHead().getNext();   //用于辅助遍历node1

@@ -1,7 +1,6 @@
 package com.tht.test;
 
-import com.tht.linkedlist.SingleLinkedList;
-import com.tht.linkedlist.SingleLinkedListNode;
+import com.tht.linkedlist.*;
 
 /**
  * @ClassName : com.tht.test.LinkedListTest
@@ -11,7 +10,7 @@ import com.tht.linkedlist.SingleLinkedListNode;
  */
 public class LinkedListTest {
     public static void main(String[] args) {
-        singleLinkedListTest();
+        circleSingleLinkedListTest();
     }
 
     public static void singleLinkedListTest(){
@@ -34,9 +33,9 @@ public class LinkedListTest {
         //System.out.println("逆序打印");
         //singleLinkedList.reversePrint();
         SingleLinkedList singleLinkedList2 = new SingleLinkedList(true);
-        //singleLinkedList2.add(new SingleLinkedListNode(6,"wd"));
-        //singleLinkedList2.add(new SingleLinkedListNode(3,"zl"));
-        SingleLinkedList list = SingleLinkedList.merge(singleLinkedList, null);
+        singleLinkedList2.add(new SingleLinkedListNode(6,"wd"));
+        singleLinkedList2.add(new SingleLinkedListNode(3,"zl"));
+        SingleLinkedList list = SingleLinkedList.merge(singleLinkedList, singleLinkedList2);
         list.get(0).setName("www");
         list.print();
         System.out.println("原1：");
@@ -49,5 +48,35 @@ public class LinkedListTest {
         SingleLinkedListNode node = new SingleLinkedListNode(1,"tht");
         node.setNext(new SingleLinkedListNode(3,"zl"));
         SingleLinkedListNode clone = node.clone();
+    }
+
+    public static void doubleLinkedListTest(){
+        DoubleLinkedList doubleLinkedList = new DoubleLinkedList(true);
+        doubleLinkedList.add(new DoubleLinkedListNode(1,"wd"));
+        doubleLinkedList.add(new DoubleLinkedListNode(5,"zl"));
+        doubleLinkedList.add(new DoubleLinkedListNode(2,"gy"));
+        doubleLinkedList.add(new DoubleLinkedListNode(0,"y"));
+        doubleLinkedList.add(new DoubleLinkedListNode(9,"x"));
+        doubleLinkedList.add(new DoubleLinkedListNode(1,"wd"));
+        doubleLinkedList.print();
+        doubleLinkedList.update(new DoubleLinkedListNode(0,"tht"));
+        System.out.println("修改后：");
+        doubleLinkedList.print();
+        //doubleLinkedList.remove(9);
+        //System.out.println("删除后：");
+        //doubleLinkedList.print();
+        System.out.println("-------");
+        System.out.println(doubleLinkedList.getTail().getPre());
+    }
+
+    public static void circleSingleLinkedListTest(){
+        CircleSingleLinkedList circleSingleLinkedList = new CircleSingleLinkedList();
+        circleSingleLinkedList.add(new SingleLinkedListNode(1,"wd"));
+        circleSingleLinkedList.add(new SingleLinkedListNode(5,"zl"));
+        circleSingleLinkedList.add(new SingleLinkedListNode(2,"gy"));
+        circleSingleLinkedList.add(new SingleLinkedListNode(0,"y"));
+        circleSingleLinkedList.add(new SingleLinkedListNode(9,"x"));
+        circleSingleLinkedList.print();
+        circleSingleLinkedList.josephu(1,2);
     }
 }
